@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "katana-splicenet"
-version = "2.3.0"
+version = "2.3.1"
 description = "KatanaAS pure-Python count-debiased ExcessBioVar + Tukey bicor + Signed TOM bulk alternative co-splicing network and module discovery."
 readme = "README.md"
 license = {text = "MIT"}

@@ -1,4 +1,4 @@
-# katana-splicenet (`v2.3.0`) — KatanaAS Suite
+# katana-splicenet (`v2.3.1`) — KatanaAS Suite
 
 [![CI](https://github.com/Taratype0/katana-splicenet/actions/workflows/ci.yml/badge.svg)](https://github.com/Taratype0/katana-splicenet/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)

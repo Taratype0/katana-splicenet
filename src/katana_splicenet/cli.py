@@ -1,4 +1,4 @@
-"""Standalone CLI for katana-splicenet (v2.3.0) — pure Python out-of-the-box, nf-core compatible."""
+"""Standalone CLI for katana-splicenet (v2.3.1) — pure Python out-of-the-box, nf-core compatible."""
 from __future__ import annotations
 
 import argparse
@@ -11,7 +11,7 @@ from katana_splicenet.evaluation import enrich_module_genes_v2, score_modules_v2
 from katana_splicenet.network import consensus_core_audit, fit_wgcna_v2
 from katana_splicenet.qc_and_selection import select_events_v2, unit_robust_audit_v2
 
-__version__ = "2.3.0"
+__version__ = "2.3.1"
 def write_nfcore_versions_yml(path: Path | str, process_name: str = "KATANA_SPLICENET") -> None:
     """Emit standard nf-core `versions.yml` recording tool and Python versions."""
     import platform
@@ -19,7 +19,7 @@ def write_nfcore_versions_yml(path: Path | str, process_name: str = "KATANA_SPLI
     p.parent.mkdir(parents=True, exist_ok=True)
     yml = (
         f'"{process_name}":\n'
-        f'    katana-splicenet: "2.3.0"\n'
+        f'    katana-splicenet: "2.3.1"\n'
         f'    python: "{platform.python_version()}"\n'
     )
     p.write_text(yml, encoding="utf-8")
@@ -28,7 +28,7 @@ def write_nfcore_versions_yml(path: Path | str, process_name: str = "KATANA_SPLI
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="katana-splicenet",
-        description="Katana Bulk CoSplice v2.3.0: Excess-BioVar debiased signed TOM co-splicing network & module discovery.",
+        description="Katana Bulk CoSplice v2.3.1: Excess-BioVar debiased signed TOM co-splicing network & module discovery.",
     )
     parser.add_argument("--version", action="version", version=f"katana-splicenet {__version__}")
     parser.add_argument("--usage", type=Path, required=False, help="Relative usage / PSI matrix TSV (rows=events, cols=samples)")
@@ -40,7 +40,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--feature-cap", type=int, default=5000)
     parser.add_argument("--min-module-size", type=int, default=20)
     parser.add_argument("--ranking-metric", choices=["excess_bio_variance", "variance"], default="excess_bio_variance")
-    parser.add_argument("--power", type=int, default=6)
+    parser.add_argument("--power", type=int, default=0, help="Signed TOM soft-threshold power (0 = auto scale-free pick_soft_threshold_v2)")
     parser.add_argument("--backend", choices=["python", "r-wgcna"], default="python")
     parser.add_argument("--subsamples", type=int, default=0)
     parser.add_argument("--emit-versions-yml", type=Path, default=None, help="Write nf-core compatible versions.yml")
