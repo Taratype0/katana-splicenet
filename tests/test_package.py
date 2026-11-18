@@ -9,7 +9,7 @@ from katana_splicenet.cli import main as sn_cli_main
 
 
 def test_splicenet_exports_bicor_tom_and_wgcna(tmp_path: Path) -> None:
-    assert ksn.__version__ == "2.3.1"
+    assert ksn.__version__ == "2.3.2"
     for sym in ksn.__all__:
         assert hasattr(ksn, sym), f"Missing export {sym}"
     rng = np.random.default_rng(42)

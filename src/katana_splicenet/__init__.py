@@ -1,4 +1,4 @@
-"""Katana-SpliceNet 2.3.1 — Pure-Python Excess-BioVar Signed TOM Co-Splicing Network."""
+"""Katana-SpliceNet 2.3.2 — Pure-Python Excess-BioVar Signed TOM Co-Splicing Network."""
 from katana_splicenet.evaluation import enrich_module_genes_v2, orthogonalize_host_depth, score_modules_v2
 from katana_splicenet.network import (
     compute_signed_tom_from_bicor,
@@ -9,7 +9,7 @@ from katana_splicenet.network import (
 )
 from katana_splicenet.qc_and_selection import select_events_v2, unit_robust_audit_v2
 
-__version__ = "2.3.1"
+__version__ = "2.3.2"
 
 __all__ = [
     "__version__",
